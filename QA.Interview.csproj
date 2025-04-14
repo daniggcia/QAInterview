@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- SpecFlow core + BDD tooling -->
+        <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+        <PackageReference Include="SpecFlow" Version="3.9.74" />
+        <PackageReference Include="SpecFlow.NUnit.Runners" Version="3.9.74" />
+        <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" />
+
+        <!-- Selenium + browser automation -->
+        <PackageReference Include="Selenium.WebDriver" Version="4.18.0" />
+        <PackageReference Include="Selenium.Support" Version="4.11.0" />
+
+        <!-- NUnit testing framework -->
+        <PackageReference Include="NUnit" Version="3.13.3" />
+        <PackageReference Include="NUnit3TestAdapter" Version="5.0.0" />
+
+        <!-- FluentAssertions para validaciones más expresivas -->
+        <PackageReference Include="FluentAssertions" Version="6.11.0" />
+        <PackageReference Include="WebDriverManager" Version="2.17.5" />
+    </ItemGroup>
+
+</Project>
