@@ -32,12 +32,14 @@ namespace QA.Interview.Pages
             js.ExecuteScript("arguments[0].value = arguments[1];", emailInput, email);
             js.ExecuteScript("arguments[0].value = arguments[1];", passwordInput, password);
         }
+
         public void ClickLogin()
         {
             Console.WriteLine("Haciendo clic en el botón de login...");
 
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            var loginButton = wait.Until(driver => driver.FindElement(By.CssSelector("input[data-test='login-submit']")));
+            var loginButton =
+                wait.Until(driver => driver.FindElement(By.CssSelector("input[data-test='login-submit']")));
 
             IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
             js.ExecuteScript("arguments[0].click();", loginButton);

@@ -57,12 +57,14 @@ public class CheckoutSteps
         _cartPage.OpenCartAndProceedToCheckout();
     }
 
+
     [When(@"I enter an invalid email and any password")]
     public void WhenIEnterAnInvalidEmailAndAnyPassword()
     {
         var loginPage = new LoginPage(_driver);
        loginPage.FillCredentials("invalid@example.com", "123456");
-    }
+
+   }
 
     [When(@"I attempt to login")]
     public void WhenIAttemptToLogin()
