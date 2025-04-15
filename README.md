@@ -1,50 +1,105 @@
-# QAInterview
-El proyecto QA Interview está diseñado para evaluar las habilidades del candidato y forma parte del proceso de selección para el equipo de QA Automation. En este proyecto, se debe implementar una serie de ejercicios utilizando Selenium WebDriver.
-# QA.Interview
 
-Este proyecto contiene un conjunto de pruebas automatizadas desarrolladas con .NET, SpecFlow y Selenium WebDriver. Su objetivo es validar funcionalidades clave de un e-commerce de herramientas (ToolShop Demo) mediante pruebas de UI y validaciones de login en el proceso de checkout.
+# QA.Interview – Test Automation Project
 
-## Tecnologías utilizadas
+Proyecto de automatización de pruebas UI y API para el sitio [Practice Software Testing](https://practicesoftwaretesting.com/), usando .NET, Selenium, SpecFlow y más.
 
-- .NET 8.0
-- SpecFlow
-- Selenium WebDriver
-- xUnit
-- Rider o Visual Studio
-- ChromeDriver
+## 📁 Estructura del Proyecto
 
-## Estructura del proyecto
+```
+QA.Interview/
+├── Features/                   # Archivos .feature con los escenarios en Gherkin
+│   ├── CheckoutLogin.feature
+│   └── HandTools.feature
+│
+├── Pages/                     # Page Object Models
+│   └── LoginPage.cs
+│
+├── StepDefinitions/          # Definiciones de los pasos en SpecFlow
+│   └── CheckoutSteps.cs
+│
+├── Hooks/                    # Hooks de SpecFlow (si los hay)
+│
+├── app.config                # Configuraciones de Selenium, si aplica
+├── QA.Interview.csproj       # Proyecto .NET
+└── README.md                 # Este archivo
+```
 
-- **Features**: archivos .feature con escenarios en Gherkin
-- **StepDefinitions**: implementación de pasos en C#
-- **Pages**: Page Objects con los elementos y acciones
-- **Hooks**: configuración global de pruebas
+## 🛠Tecnologías utilizadas
 
-## Cómo ejecutar las pruebas
+- [.NET 8](https://dotnet.microsoft.com/en-us/)
+- [SpecFlow](https://specflow.org/)
+- [Selenium WebDriver](https://www.selenium.dev/)
+- [ChromeDriver](https://chromedriver.chromium.org/)
+- [Gherkin](https://cucumber.io/docs/gherkin/)
+- [JetBrains Rider](https://www.jetbrains.com/rider/) (IDE)
 
-1. Clona el repositorio
-2. Restaura los paquetes
-dotnet restore
+## Ejecución de pruebas
 
-markdown
-Copiar
-Editar
-3. Ejecuta las pruebas
-dotnet test
+1. **Restaurar dependencias y compilar el proyecto**:
 
-markdown
-Copiar
-Editar
+   ```bash
+   dotnet build
+   ```
 
-## Escenarios automatizados
+2. **Ejecutar los tests**:
 
-- Login fallido durante checkout con credenciales inválidas
-- Navegación y selección de producto en Power Tools
-- Añadir producto al carrito
-- Proceso de compra con errores de validación
+   ```bash
+   dotnet test
+   ```
 
-## Notas
+   Esto ejecutará todos los escenarios definidos en los `.feature`.
 
-- Asegúrate de tener Chrome actualizado
-- Usa un entorno limpio para evitar conflictos de versiones
-- Si necesitas cambiar el navegador o el entorno, modifica los hooks o los PageObjects
+## Escenarios Automatizados
+
+### Login inválido desde Checkout
+
+Archivo: `CheckoutLogin.feature`
+
+```gherkin
+Scenario: Try to login with invalid email during checkout
+   Given I am on the homepage
+   When I navigate to the "Power Tools" section from the "Categories" menu
+   And I select the first product
+   And I add the product to the cart
+   And I go to the cart and proceed to checkout
+   And I enter an invalid email and any password
+   And I click the login button
+   Then I should see an error message for invalid credentials
+```
+
+### Filtro en Hand Tools *(por implementar/implementado)*
+
+...
+
+## Funcionalidades clave
+
+- Navegación dinámica por el menú de categorías
+- Selección y compra de productos
+- Validación de errores en login
+- Esperas explícitas para sincronización
+- Manejador de errores y mensajes condicionales para mejorar trazabilidad
+
+## Buenas prácticas aplicadas
+
+- Uso de Page Object Model
+- Separación de concerns
+- Sin sleeps: sincronización por WebDriverWait
+- Selectores CSS claros y mantenibles
+
+## Consideraciones
+
+- Es necesario tener **Chrome instalado**.
+- Asegúrate de tener la versión correcta de `chromedriver` en tu entorno.
+- La URL de prueba es pública, pero puede cambiar sin previo aviso.
+
+## Pendientes o mejoras futuras
+
+- Implementar pruebas para filtros
+- Añadir validaciones visuales (por ejemplo, capturas en fallos)
+- Añadir pipeline de integración continua (GitHub Actions o Azure DevOps)
+
+## 👤 Autor
+
+Daniel – QA Automation Engineer en formación continua 
+daniggcia@hotmail.com
+

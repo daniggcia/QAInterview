@@ -39,12 +39,6 @@ public class CheckoutSteps
         _cartPage.OpenCartAndProceedToCheckout();
     }
 
-    [When(@"I enter an invalid email and any password")]
-    public void WhenIEnterAnInvalidEmailAndAnyPassword()
-    {
-        _loginPage.FillCredentials("correo-invalido", "1234");
-    }
-
     [When(@"I click the login button")]
     public void WhenIClickTheLoginButton()
     {
@@ -63,11 +57,11 @@ public class CheckoutSteps
         _cartPage.OpenCartAndProceedToCheckout();
     }
 
-    [When(@"I enter invalid email ""(.*)"" and password ""(.*)""")]
-    public void WhenIEnterInvalidEmailAndPassword(string email, string password)
+    [When(@"I enter an invalid email and any password")]
+    public void WhenIEnterAnInvalidEmailAndAnyPassword()
     {
-       _cartPage.ClickProceedToCheckout();
-        _loginPage.FillCredentials(email, password);
+        var loginPage = new LoginPage(_driver);
+       loginPage.FillCredentials("invalid@example.com", "123456");
     }
 
     [When(@"I attempt to login")]
