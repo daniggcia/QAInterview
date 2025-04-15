@@ -26,6 +26,13 @@ QA.Interview/
 
 ## 🛠Tecnologías utilizadas
 
+Lenguaje: C# (.NET 8.0)
+Framework de testing: SpecFlow (BDD)
+Automatización Web: Selenium WebDriver
+Navegador: Chrome
+IDE: JetBrains Rider
+Control de versiones: Git + GitHub
+
 - [.NET 8](https://dotnet.microsoft.com/en-us/)
 - [SpecFlow](https://specflow.org/)
 - [Selenium WebDriver](https://www.selenium.dev/)
@@ -33,43 +40,6 @@ QA.Interview/
 - [Gherkin](https://cucumber.io/docs/gherkin/)
 - [JetBrains Rider](https://www.jetbrains.com/rider/) (IDE)
 
-## Ejecución de pruebas
-
-1. **Restaurar dependencias y compilar el proyecto**:
-
-   ```bash
-   dotnet build
-   ```
-
-2. **Ejecutar los tests**:
-
-   ```bash
-   dotnet test
-   ```
-
-   Esto ejecutará todos los escenarios definidos en los `.feature`.
-
-## Escenarios Automatizados
-
-### Login inválido desde Checkout
-
-Archivo: `CheckoutLogin.feature`
-
-```gherkin
-Scenario: Try to login with invalid email during checkout
-   Given I am on the homepage
-   When I navigate to the "Power Tools" section from the "Categories" menu
-   And I select the first product
-   And I add the product to the cart
-   And I go to the cart and proceed to checkout
-   And I enter an invalid email and any password
-   And I click the login button
-   Then I should see an error message for invalid credentials
-```
-
-### Filtro en Hand Tools *(por implementar/implementado)*
-
-...
 
 ## Funcionalidades clave
 
@@ -98,8 +68,25 @@ Scenario: Try to login with invalid email during checkout
 - Añadir validaciones visuales (por ejemplo, capturas en fallos)
 - Añadir pipeline de integración continua (GitHub Actions o Azure DevOps)
 
+### Instalación y ejecución
+- Clonar el proyecto:
+  git clone https://github.com/daniggcia/QAInterview.git
+
+- Restaurar dependencias:
+  dotnet restore
+
+- Ejecutar los tests:
+  dotnet test
+
+### Consideraciones técnicas
+
+Se evita el uso de Thread.Sleep(), priorizando buenas prácticas con esperas explícitas.
+Se trabaja con selectores robustos (data-test, formcontrolname, etc.) para minimizar la fragilidad.
+En caso de conflictos al realizar git pull, se resolvieron conflictos manualmente con rebase.
+
+
 ## 👤 Autor
 
-Daniel – QA Automation Engineer en formación continua 
+Daniel – QA Automation Engineer 
 daniggcia@hotmail.com
 
