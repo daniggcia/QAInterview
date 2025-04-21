@@ -7,21 +7,36 @@ Proyecto de automatización de pruebas UI y API para el sitio [Practice Software
 
 ```
 QA.Interview/
+├── Drivers/                    # Configuración del WebDriver
+│   ├── chromedriver.exe
+│   └── WebDriverFactory.cs
+│
 ├── Features/                   # Archivos .feature con los escenarios en Gherkin
 │   ├── CheckoutLogin.feature
-│   └── HandTools.feature
+│   ├── HandTools.feature
+│   └── Rentals.feature
 │
-├── Pages/                     # Page Object Models
-│   └── LoginPage.cs
+├── Hooks/                      # Hooks de SpecFlow (BeforeScenario, etc.)
+│   └── TestHooks.cs
 │
-├── StepDefinitions/          # Definiciones de los pasos en SpecFlow
-│   └── CheckoutSteps.cs
+├── Pages/                      # Page Object Models (POM)
+│   ├── CartPage.cs
+│   ├── HandToolsPage.cs
+│   ├── LoginPage.cs
+│   ├── MainPage.cs
+│   ├── PowerToolsPage.cs
+│   └── RentalsPage.cs
 │
-├── Hooks/                    # Hooks de SpecFlow (si los hay)
+├── StepDefinitions/            # Definiciones de pasos en SpecFlow
+│   ├── CheckoutSteps.cs
+│   ├── CommonSteps.cs
+│   ├── HandToolSteps.cs
+│   └── RentalsStep.cs
 │
-├── app.config                # Configuraciones de Selenium, si aplica
-├── QA.Interview.csproj       # Proyecto .NET
-└── README.md                 # Este archivo
+├── .gitignore                  # Archivos y carpetas ignoradas por Git
+├── QA.Interview.csproj         # Archivo del proyecto .NET
+├── app.config                  # Configuración de la ejecución (si aplica)
+└── README.md                   # Documentación del proyecto
 ```
 
 ## 🛠Tecnologías utilizadas
